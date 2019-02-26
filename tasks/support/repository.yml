@@ -1,0 +1,21 @@
+---
+
+- name: create repository directory
+  file:
+    path: "{{ git_server_service_dir }}/{{ repository }}"
+    state: directory
+    owner: "{{ git_server_user }}"
+  become: yes
+
+- name: check if .git directory exists
+  stat:
+    path: "{{ git_server_service_dir }}/{{ repository }}/.git"
+  register: dot_git
+
+- name: initialize git repository
+  shell: "git init --bare"
+  args:
+    chdir: "{{ git_server_service_dir }}/{{ repository }}"
+  become: yes
+  become_user: "{{ git_server_user }}"
+  when: not dot_git.stat.exists

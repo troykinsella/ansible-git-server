@@ -1,0 +1,12 @@
+---
+- name: create repositories directory
+  file:
+    path: "{{ git_server_service_dir }}"
+    state: directory
+    owner: "{{ git_server_user }}"
+  become: yes
+
+- include: support/repository.yml
+  vars:
+    repository: "{{ item }}"
+  with_list: "{{ git_server_repositories }}"

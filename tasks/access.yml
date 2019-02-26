@@ -1,0 +1,8 @@
+---
+- name: configure authorized keys
+  authorized_key:
+    user: "{{ git_server_user }}"
+    key: "{{ item }}"
+    state: present
+  become: yes
+  with_list: "{{ git_server_authorized_keys }}"

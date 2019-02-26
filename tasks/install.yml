@@ -1,0 +1,23 @@
+---
+- name: install git package
+  apt:
+    name: git
+    state: present
+  become: yes
+
+- name: configure git-shell
+  lineinfile:
+    path: /etc/shells
+    state: present
+    line: "{{ git_server_git_shell_path }}"
+  become: yes
+
+- name: create git user
+  user:
+    name: "{{ git_server_user }}"
+    comment: "Git"
+    create_home: yes
+    home: "{{ git_server_home_dir }}"
+    shell: "{{ git_server_git_shell_path }}"
+    state: present
+  become: yes

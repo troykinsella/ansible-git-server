@@ -1,0 +1,11 @@
+---
+dependencies: []
+
+galaxy_info:
+  author: Troy Kinsella
+  description: Git server
+  license: MIT
+  min_ansible_version: 2.7
+  galaxy_tags:
+  - git
+  github_branch: master

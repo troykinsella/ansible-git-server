@@ -1,0 +1,11 @@
+---
+git_server_user: git
+git_server_git_shell_path: /usr/bin/git-shell
+git_server_home_dir: /home/{{git_server_user}}
+
+git_server_service_dir: /srv/git
+git_server_service_dir_mode: "0755"
+
+git_server_authorized_keys: []
+
+git_server_repositories: []
