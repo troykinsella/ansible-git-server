@@ -8,5 +8,6 @@
 
 - include: support/repository.yml
   vars:
-    repository: "{{ item }}"
+    repository: "{{ item.name }}"
+    hooks: "{{ item.hooks }}"
   with_list: "{{ git_server_repositories }}"

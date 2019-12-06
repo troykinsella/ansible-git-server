@@ -9,3 +9,8 @@ git_server_service_dir_mode: "0755"
 git_server_authorized_keys: []
 
 git_server_repositories: []
+# - name: my-repo
+#   hooks:
+#     post-receive: "{{ lookup('file', 'files/git-hooks/post-receive') }}"
+#   hook_links:
+#     pre-receive: "{{ my_common_hooks_dir }}/pre-receive"

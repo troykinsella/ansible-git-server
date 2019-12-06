@@ -19,3 +19,13 @@
   become: yes
   become_user: "{{ git_server_user }}"
   when: not dot_git.stat.exists
+
+- name: create hooks
+  copy:
+    content: "{{ item.value }}"
+    dest: "{{ git_server_service_dir }}/{{ repository }}/.git/hooks/{{ item.key }}"
+    mode: "0755"
+    owner: "{{ git_server_user }}"
+  become: yes
+  with_list: "{{ hooks }}"
+

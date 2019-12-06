@@ -8,4 +8,5 @@ galaxy_info:
   min_ansible_version: 2.7
   galaxy_tags:
   - git
+  - server
   github_branch: master
